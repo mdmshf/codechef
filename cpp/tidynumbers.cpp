@@ -1,0 +1,61 @@
+#include <stdio.h>
+int main()
+{
+	unsigned long long n,j,c;
+	int t,d,k,l,m,flag,length,i=1,ar[20];
+	scanf("%d",&t);
+	while(t--)
+	{
+		scanf("%llu",&n);
+		printf("Case #%d: ",i);
+		for(j=n;;j--)
+		{
+			flag=0;c=j;d=9;length=0;
+			while(c>0)
+			{
+				length++;
+				c/=10;
+			}
+			c=j;k=length;
+			while(c>0)
+			{
+				ar[k]=c%10;
+				c/=10;
+				k--;
+			}
+			for(l=length;l>1;l--)
+			{
+				if(ar[l]<ar[l-1])
+				for(m=l;m<=length;m++)
+				{
+					ar[m]=0;
+				}
+			}
+			c=length;d=9;
+			while(c>0)
+			{
+				if(d>=ar[c])
+				{
+				d=ar[c];
+				}
+				else
+				{
+				flag=1;
+				break;
+				}
+				c--;
+			}
+			if(flag==0)
+			{
+				printf("%llu\n",j);
+				break;		
+			}
+			j=0;
+			for(c=1;c<=length;c++)
+			{
+				j=j*10+ar[c];
+			}
+		}
+		i++;		
+	}
+}
