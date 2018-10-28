@@ -29,6 +29,7 @@ firebaseUrl= 'https://iotapp-58ab6.firebaseio.com/'
 firebaseRef=firebase.FirebaseApplication(firebaseUrl,None)
 print("Firebase Url excepted")
 valOld=0
+hello=56
 
 try:
     while True:
